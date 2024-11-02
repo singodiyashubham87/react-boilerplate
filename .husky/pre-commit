@@ -1,0 +1,15 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo '🏗️👷 Styling your project before committing👷‍♂️🏗️'
+echo 'please be patient, this may take a while...'
+
+# Check and fix ESLint Standards
+yarn lint-staged ||
+(
+    echo '🔨❌ Yikes! There are some errors that could not be automatically fixed. 🔨❌'
+    echo 'Please fix them manually and try committing again.'
+    false;
+)
+
+echo '🎉 Shabash: Clean code committing.... ✨🚀🏄‍♂️🍻'
